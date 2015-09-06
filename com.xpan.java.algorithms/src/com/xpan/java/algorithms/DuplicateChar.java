@@ -1,23 +1,26 @@
 package com.xpan.java.algorithms;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DuplicateChar {
 
-	public boolean hasDuplicateCharacter(String contents) {
-		boolean find = false;
-		List<String> tList = new ArrayList<String>();
+	public void duplicateCharacter(String contents) {
+		Map<String, Integer> tMap = new HashMap<String, Integer>();
 		for (int idx = 0; idx < contents.length(); idx++) {
-			char ch = contents.charAt(idx);
-			if (tList.contains(ch)) {
-				find = true;
-				break;
+			String cur = String.valueOf(contents.charAt(idx));
+			if (tMap.get(cur) == null) {
+				tMap.put(cur, 1);
 			} else {
-				tList.add(String.valueOf(ch));
+				int total = tMap.get(cur);
+				total++;
+				tMap.put(cur, total);
 			}
 		}
 
-		return find;
+		for (String ch : tMap.keySet()) {
+			System.out.println("Character: " + ch + ", repeation: " + tMap.get(ch));
+		}
+
 	}
 }
