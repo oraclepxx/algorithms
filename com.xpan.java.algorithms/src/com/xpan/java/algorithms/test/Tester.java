@@ -1,6 +1,6 @@
 package com.xpan.java.algorithms.test;
 
-import com.xpan.java.algorithms.StackOperation;
+import com.xpan.java.algorithms.stack.StackOperation;
 
 
 public class Tester {

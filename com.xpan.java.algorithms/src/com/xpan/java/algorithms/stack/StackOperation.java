@@ -1,4 +1,4 @@
-package com.xpan.java.algorithms;
+package com.xpan.java.algorithms.stack;
 
 import java.util.Stack;
 

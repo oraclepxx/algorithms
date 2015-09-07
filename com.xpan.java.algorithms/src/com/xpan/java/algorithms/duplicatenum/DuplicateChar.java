@@ -1,4 +1,4 @@
-package com.xpan.java.algorithms;
+package com.xpan.java.algorithms.duplicatenum;
 
 import java.util.HashMap;
 import java.util.Map;
