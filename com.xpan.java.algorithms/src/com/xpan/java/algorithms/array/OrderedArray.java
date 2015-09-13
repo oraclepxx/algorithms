@@ -42,6 +42,41 @@ public class OrderedArray {
 		}
 	}
 
+	public void binaryInsert(int element) {
+		if (size > 0 && size % increasement == 0) {
+			orderedArr = allocate(orderedArr, increasement);
+		}
+
+		int index = caculateIndex(element);
+		for (int i = size - 1; i >= index; i--) {
+			orderedArr[i + 1] = orderedArr[i];
+		}
+		orderedArr[index] = element;
+		size++;
+	}
+
+	public int caculateIndex(int element) {
+		int index = 0;
+		if (size == 0) {
+			return index;
+		}
+		int low = 0;
+		int high = size - 1;
+		int point = (low + high) / 2;
+		while (low <= high) {
+			if (element >= orderedArr[point]) {
+				low = point + 1;
+			} else if (element < orderedArr[point]) {
+				high = point - 1;
+			} 
+
+			point = (low + high) / 2;
+			index = point + 1;
+		}
+
+		return index;
+	}
+
 	public int find(int element) {
 		int index = -1;
 		if (size <= 0 || element > orderedArr[size - 1] || element < orderedArr[0]) {

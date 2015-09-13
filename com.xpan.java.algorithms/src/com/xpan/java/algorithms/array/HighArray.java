@@ -55,6 +55,48 @@ public class HighArray {
 
 	}
 
+	public int getMax() {
+		if (size == 0) {
+			return -1;
+		}
+
+		int max = arr[0];
+		for (int i = 1; i < size; i++) {
+			if (arr[i] > max) {
+				max = arr[i];
+			}
+		}
+
+		return max;
+	}
+
+	public boolean removeMax() {
+		if (size == 0) {
+			return false;
+		}
+
+		int index = 0;
+		int max = arr[index];
+		for (int i = 1; i < size; i++) {
+			if (arr[i] > max) {
+				max = arr[i];
+				index = i;
+			}
+		}
+
+		if (index >= 0) {
+			for (int i = index; i < size - 1; i++) {
+				arr[i] = arr[i + 1];
+			}
+			arr[size - 1] = 0;
+			size--;
+			return true;
+		}
+		
+		return false;
+
+	}
+
 	private int[] allocate(int[] oldArr, int increasement) {
 		int[] newArr = new int[oldArr.length + increasement];
 		for (int i = 0; i < oldArr.length; i++) {
