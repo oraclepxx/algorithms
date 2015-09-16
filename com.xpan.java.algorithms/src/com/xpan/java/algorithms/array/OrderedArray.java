@@ -118,6 +118,20 @@ public class OrderedArray {
 	public int size() {
 		return size;
 	}
+	
+	public int[] merge(int[] target) {
+		OrderedArray newArr = new OrderedArray(size + target.length);
+		
+		for(int i = 0; i < size; i++) {
+			newArr.insert(orderedArr[i]);
+		}
+		
+		for(int i = 0; i < target.length; i++) {
+			newArr.insert(target[i]);
+		}
+		
+		return newArr.orderedArr;
+	}
 
 	public void print() {
 		for (int i = 0; i < size; i++) {

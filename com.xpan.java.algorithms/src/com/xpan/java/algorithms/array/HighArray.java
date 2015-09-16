@@ -92,8 +92,31 @@ public class HighArray {
 			size--;
 			return true;
 		}
-		
+
 		return false;
+
+	}
+
+	public void noDups() {
+		for (int i = 0; i < size; i++) {
+			int tmp = arr[i];
+			for (int j = i + 1; j < size; j++) {
+				int dup = arr[j];
+				if (tmp == dup) {
+					arr[j] = Integer.MIN_VALUE;
+				}
+			}
+		}
+
+		int count = 0;
+		for (int i = 0; i < size; i++) {
+			if (arr[i] == Integer.MIN_VALUE) {
+				for (int j = i; j < size - 1; j++) {
+					arr[j] = arr[j + 1];
+				}
+				size--;
+			}
+		}
 
 	}
 
