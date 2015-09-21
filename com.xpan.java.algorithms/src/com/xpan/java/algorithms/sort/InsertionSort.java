@@ -5,15 +5,12 @@ public class InsertionSort {
 	public static void sort(int[] arr) {
 		for (int idx = 1; idx < arr.length; idx++) {
 			int tmp = arr[idx];
-			for (int j = idx - 1; j >= 0; j--) {
-				if (tmp < arr[j]) {
-					arr[j + 1] = arr[j];
-				} else {
-					arr[j] = tmp;
-					break;
-				}
+			int j = idx - 1;
+			while (j >= 0 && arr[j] > tmp) {
+				arr[j + 1] = arr[j];
+				j--;
 			}
-
+			arr[j + 1] = tmp;
 		}
 
 	}
