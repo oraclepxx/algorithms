@@ -3,6 +3,18 @@ package com.xpan.java.algorithms.sort;
 public class SortApp {
 
 	public static void main(String[] args) {
+		int[] arr = { 6, 6, 5, 5, 5, 0, 0, 2, 2, 2, 2, 2, 8, 3, 3, 1, 9, 4, 4, 7 };
+		InsertionSort.sortWithoutDups(arr);
+		print(arr);
+	}
+
+	public static void test3() {
+		int[] arr = { 6, 6, 5, 5, 5, 0, 0, 2, 2, 2, 2, 2, 8, 3, 3, 1, 9, 4, 4, 7 };
+		InsertionSort.sortWithoutDups(arr);
+		print(arr);
+	}
+
+	public static void test2() {
 		int[] arr = { 0, 0, 0, 1, 1, 2, 3, 3, 3, 3, 3, 3, 4, 4, 7, 9, 9, 9 };
 		arr = SortingUtil.noDups(arr);
 		print(arr);
