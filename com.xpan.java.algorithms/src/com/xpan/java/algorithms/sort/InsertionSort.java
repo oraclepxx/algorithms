@@ -41,14 +41,17 @@ public class InsertionSort {
 		}
 	}
 
-	public static void sortWithoutDups(int[] arr) {
+	public static int[] sortWithoutDups(int[] arr) {
 		int idx = 1;
 		int dups = 0;
 		while (idx < arr.length) {
 			int tmp = arr[idx];
 			int j = idx - 1;
 			while (j >= dups) {
-				if (arr[j] > tmp) {
+				if (arr[j] == Integer.MIN_VALUE) {
+					arr[j + 1] = arr[j];
+					j--;
+				} else if (arr[j] > tmp) {
 					arr[j + 1] = arr[j];
 					j--;
 				} else if (arr[j] == tmp) {
@@ -63,6 +66,18 @@ public class InsertionSort {
 			arr[j + 1] = tmp;
 			idx++;
 		}
+
+		int[] newArr = new int[arr.length - dups];
+		int dup = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == Integer.MIN_VALUE) {
+				dup++;
+			} else {
+				newArr[i - dup] = arr[i];
+			}
+		}
+
+		return newArr;
 	}
 
 }
