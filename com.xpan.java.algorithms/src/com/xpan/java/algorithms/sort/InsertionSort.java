@@ -80,4 +80,39 @@ public class InsertionSort {
 		return newArr;
 	}
 
+	public static void sortNoDups(int[] arr) {
+		int idx = 1;
+		while (idx < arr.length) {
+			int tmp = arr[idx];
+			int j = idx - 1;
+			boolean dup = false;
+			while (j >= 0) {
+				if (dup) {
+					arr[j + 1] = arr[j];
+					j--;
+				} else {
+					if (arr[j] < tmp) {
+						break;
+					} else {
+						if (arr[j] == tmp) {
+							dup = true;
+						}
+						arr[j + 1] = arr[j];
+						j--;
+					}
+				}
+
+			}
+
+			if (dup) {
+				arr[j + 1] = Integer.MIN_VALUE;
+			} else {
+				arr[j + 1] = tmp;
+			}
+
+			idx++;
+		}
+
+	}
+
 }
