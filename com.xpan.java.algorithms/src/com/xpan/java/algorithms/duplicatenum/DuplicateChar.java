@@ -19,7 +19,7 @@ public class DuplicateChar {
 		}
 
 		for (String ch : tMap.keySet()) {
-			System.out.println("Character: " + ch + ", repeation: " + tMap.get(ch));
+			System.out.println("Characterhahahahha: " + ch + ", repeation: " + tMap.get(ch));
 		}
 
 	}
